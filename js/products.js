@@ -13,4 +13,11 @@ const products = [
         image: "boeing777.jpg",
         description: "Отличный самолет - модерн"
     },
+    {
+        id: 2,
+        name: "Boeing 747",
+        price: 54999,
+        image: "boeing747.jpg",
+        description: "Отличный самолет - масштаб"
+    },
 ];
