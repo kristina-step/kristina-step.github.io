@@ -25,12 +25,21 @@
 ## Структура проекта
 
 online-store/
+
 ├── index.html
+
 ├── css/
+
 │ ├── style.css
+
 │ └── responsive.css
+
 ├── js/
+
 │ ├── cart.js
+
 │ ├── products.js
+
 │ └── main.js
+
 └── README.md
