@@ -53,9 +53,9 @@ function initializeEventListeners(cart) {
     });
 
     document.addEventListener('click', (e) => {
-        const cartItems = document.getElementById('cartItems');
-        
         if (e.target.classList.contains('quantity-btn')) {
+            e.stopPropagation(); 
+            
             const productId = parseInt(e.target.getAttribute('data-id'));
             const item = cart.items.find(item => item.id === productId);
             
@@ -73,6 +73,8 @@ function initializeEventListeners(cart) {
         }
         
         if (e.target.classList.contains('remove-item')) {
+            e.stopPropagation(); 
+            
             const productId = parseInt(e.target.getAttribute('data-id'));
             cart.removeItem(productId);
         }
@@ -116,7 +118,15 @@ function initializeEventListeners(cart) {
     });
 
     document.addEventListener('click', (e) => {
-        if (!cartSidebar.contains(e.target) && !cartButton.contains(e.target)) {
+        const isClickOnCartElement = 
+            cartSidebar.contains(e.target) || 
+            cartButton.contains(e.target) ||
+            e.target.classList.contains('quantity-btn') ||
+            e.target.classList.contains('remove-item') ||
+            e.target.closest('.quantity-btn') ||
+            e.target.closest('.remove-item');
+            
+        if (!isClickOnCartElement) {
             cartSidebar.classList.remove('active');
         }
     });
